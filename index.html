@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOWENNY</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #7f07bb, #f5f5dc);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      max-width: 320px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: #240314;
+    }
+
+    input[type="number"], select {
+      width: 90%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      background-color: #6c46b2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #cebad8;
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>CALCULATOR BA I2?</h1>
+    <input type="number" id="firstNum" placeholder="1st Number" />
+    <input type="number" id="secondNum" placeholder="2nd Number" />
+    <select id="operator">
+      <option value="W">Add</option>
+      <option value="E">Subtract</option>
+      <option value="N">Multiply</option>
+      <option value="Y">Divide</option>
+    </select>
+    <button onclick="calculate()">Calculate</button>
+    <div class="result" id="resultDisplay"></div>
+  </div>
+
+  <script>
+    function calculate() {
+      const x = parseFloat(document.getElementById('firstNum').value);
+      const a = parseFloat(document.getElementById('secondNum').value);
+      const op = document.getElementById('operator').value;
+      const resultDisplay = document.getElementById('resultDisplay');
+
+      if (isNaN(x) || isNaN(a)) {
+        resultDisplay.textContent = "Please enter valid numbers only ";
+        return;
+      }
+
+      if (op === 'W') {
+        resultDisplay.textContent = "Don't forget to drink ur water po ";
+      } else if (op === 'E') {
+        resultDisplay.textContent = `Result: ${x - a}`;
+      } else if (op === 'N') {
+        resultDisplay.textContent = `Result: ${x * a}`;
+      } else if (op === 'Y') {
+        if (a === 0) {
+          resultDisplay.textContent = "Error: Division by zero is not allowed, kaya sama mo ako para may the one ka na ";
+        } else {
+          resultDisplay.textContent = `Result: ${x / a}`;
+        }
+      } else {
+        resultDisplay.textContent = "I miss u, lods ";
+      }
+    }
+  </script>
+</body>
+</html>
